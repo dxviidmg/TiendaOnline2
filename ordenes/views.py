@@ -33,7 +33,7 @@ class OrdenCreate(View):
 			# seteamos la orden en la sesion para paypal
 			request.session['order_id']=order.id
 			# redireccionamos hacia el cobro
-			return redirect(reverse('payment:process'))
+			return redirect(reverse('pagos:processPago'))
 			# template='orders/order/created.html'
 			# context={
 			# 'order':order

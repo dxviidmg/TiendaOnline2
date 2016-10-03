@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'carrito',
     'ordenes',
     'paypal.standard.ipn',
-    'payment',
+    'pagos',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #Context de carrito
+                'carrito.context_processors.cart',
             ],
         },
     },

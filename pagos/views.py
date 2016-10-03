@@ -6,10 +6,9 @@ from django.shortcuts import render,get_object_or_404
 from paypal.standard.forms import PayPalPaymentsForm
 from ordenes.models import Orden
 from django.views.generic import View
-
 from django.views.decorators.csrf import csrf_exempt
 
-class PaymentProcess(View):
+class PagoProcess(View):
 	def get(self,request):
 		order_id=request.session.get('order_id')
 		order=get_object_or_404(Orden,id=order_id)
@@ -22,21 +21,20 @@ class PaymentProcess(View):
 			'invoice':str(order.id),
 			'currency_code':'MXN',
 			'notify_url':'http://{}{}'.format(host,reverse('paypal-ipn')),
-			'return_url':'http://{}{}'.format(host,reverse('payment:done')),
-			'cancel_return':'http://{}{}'.format(host,reverse('payment:canceled')),
+			'return_url':'http://{}{}'.format(host,reverse('pagos:donePago')),
+			'cancel_return':'http://{}{}'.format(host,reverse('pagos:canceledPago')),
 		}
 		form=PayPalPaymentsForm(initial=paypal_dict)
-		return render(request,'payment/process.html',{'order':order,'form':form})
+		return render(request,'pagos/processPago.html',{'order':order,'form':form})
 
 @csrf_exempt
-def payment_done(request):
-	order_id = request.session.get('order_id')
-	order = get_object_or_404(Order, id=order_id)
-	order.paid = True
+def pago_done(request):
+	order_id=request.session.get('order_id')
+	order=get_object_or_404(Orden,id=order_id)
+	order.pagado = True
 	order.save()
-	return render(request,'payment/done.html')
+	return render(request,'pagos/donePago.html')
 
 @csrf_exempt
-def payment_canceled(request):
-	return render(request,'payment/canceled.html')
-
+def pago_canceled(request):
+	return render(request,'pagos/canceledPago.html')

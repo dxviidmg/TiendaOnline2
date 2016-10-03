@@ -22,3 +22,9 @@ aside {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+#menucat {
+    color: black;
+    font-size: large;
+    text-align: center;
+}

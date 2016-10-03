@@ -18,8 +18,12 @@ from django.contrib import admin
 from productos import urls as productosUrls
 from carrito import urls as carritoUrls
 from ordenes import urls as ordenesUrls
-from payment import urls as paymentUrls
+from pagos import urls as pagosUrls
 
+#Urls de PalPay
+from paypal.standard.ipn import urls as paypalUrls
+
+#Para pasar imagenes
 from django.views.static import serve
 from django.conf import settings
 
@@ -28,7 +32,12 @@ urlpatterns = [
     url(r'^', include(productosUrls, namespace="productos")),
     url(r'^', include(carritoUrls, namespace="carrito")),
     url(r'^', include(ordenesUrls, namespace="ordenes")),
-    url(r'^', include(paymentUrls, namespace="payment")),
+    url(r'^', include(pagosUrls, namespace="pagos")),
+
+    #Palpay
+    url(r'^paypal/', include(paypalUrls)),
+    
+    #Imagenes
     url(
             regex=r'^media/(?P<path>.*)$',
             view=serve,
