@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block title%}Productos{%endblock title%}
+
+{%block content%}
+	
+    {%for producto in productos%}
+    <br>
+    <div class="container">
+	    <div class="row">
+	        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"> 
+	    		<div class="card">
+	        <img class="card-img-top" src="media/{{producto.imagen}}"  width="200" alt="Card image cap">
+	        		<div class="card-block">
+			            <h4 class="card-title">{{producto.nombre}}</h4>
+			            <p class="card-text">Precio: ${{producto.precio}}0</p>
+			            <a href="{% url 'productos:detailProducto' producto.slug %}"><p>Mas información</p></a>
+			            <form action="" method="">
+			            	{%csrf_token%}
+							{{form}}
+						<input class="btn btn-primary" type="submit" value="Comprar">
+	        		</div>
+	    		</div>
+			</div>
+		</div>
+	</div>
+    {%empty%}
+        <h2>Lista de productos vacia</h2>
+    {%endfor%}
+
+{%endblock content%}
