@@ -10,19 +10,20 @@
 		<div class="col-md-12">
 		<p  id="menucat">
 			{%for categoria in categorias%}
+
 			<a href=""> {{categoria.nombre}}</a>
+			
 			{%empty%}
+			
 			<h2>No hay</h2>
+			
 			{%endfor%}
+			
 		</p>
 		<div>
 	</div>
 	<br>
 		
-
-
-
-
     {%for producto in productos%}
 
 	    <div class="row">

@@ -39,8 +39,8 @@ urlpatterns = [
     
     #Imagenes
     url(
-            regex=r'^media/(?P<path>.*)$',
-            view=serve,
-            kwargs ={'document_root':settings.MEDIA_ROOT}
+        regex=r'^media/(?P<path>.*)$',
+        view=serve,
+        kwargs ={'document_root':settings.MEDIA_ROOT}
     ),
-    ]
+]

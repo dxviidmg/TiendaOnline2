@@ -6,8 +6,6 @@ from .carrito import Carrito
 from .forms import CartAddProductForm
 from django.views.generic import View
 
-
-
 class AgregaCarrito(View):
 	def post(self,request,product_id):
 		cart=Carrito(request)
