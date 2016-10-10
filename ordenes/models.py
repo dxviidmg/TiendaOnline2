@@ -4,14 +4,17 @@ from productos.models import Producto
 class Orden(models.Model):
 
 	nombre = models.CharField(max_length=50)
-	apellido = models.CharField(max_length=50)
-	email= models.EmailField()
+	apellidos = models.CharField(max_length=50)
+	email = models.EmailField()
 	domicilio = models.CharField(max_length=250)
-	codigo_postal = models.CharField(max_length=20)
 	ciudad = models.CharField(max_length=100)
+	estado = models.CharField(max_length=100, null=True, blank=True)
+	codigo_postal = models.CharField(max_length=20)
 	fecha_creado = models.DateTimeField(auto_now_add=True)
 	fecha_actualizado = models.DateTimeField(auto_now=True)
 	pagado = models.BooleanField(default=False)
+	empresa_envio = models.CharField(max_length=20, null=True, blank=True)
+	codigo_de_rastreo = models.CharField(max_length=20, null=True, blank=True)
 
 	class Meta:
 		ordering=('-fecha_creado',)

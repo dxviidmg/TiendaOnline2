@@ -13,23 +13,29 @@ class OrderCreateForm(forms.ModelForm):
 		model=Orden
 		fields=[
 			'nombre',
-			'apellido',
+			'apellidos',
 			'email',
 			'domicilio',
+			'ciudad',
+			'estado',
 			'codigo_postal',
-			'ciudad']
+			]
 		labels={
 			'nombre':_('Tu nombre'),
-			'apellido':_('Apellido'),
-			'domicilio':_('Direccion'),
+			'apellidos':_('Apellidos'),
+			'domicilio':_('Domicilio'),
+			'ciudad':_('Ciudad'),
+			'estado':_('Estado'),
 			'codigo_postal':_('Codigo postal'),
-			'ciudad':_('Ciudad')
+			
 		}
 		error_messages = {
 			'nombre': my_default_errors,
-			'apellido': my_default_errors,
+			'apellidos': my_default_errors,
 			'email': my_default_errors,
 			'domicilio': my_default_errors,
+			'ciudad': my_default_errors,
+			'estado': my_default_errors,
 			'codigo_postal': my_default_errors,
-			'ciudad': my_default_errors
+			
 		}

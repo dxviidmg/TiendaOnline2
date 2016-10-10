@@ -4,22 +4,40 @@
 
 {%block content%}
 
-	<h4>Confirmar Compra</h4>
+	
 
-	<div class="order-info col m6">
+	<div class="container">
+		
+	<h3>Confirmar Compra</h3>
+	<div class="row">
+		<div class="col-md-6">
 
-		<h5>Tu orden:</h5>
-		<ul>
-			{%for item in cart%}
-			<li>
-				{{item.quantity}} X {{item.product.name}}
-				<span>$ {{item.total_price}}</span>
-			</li>
-			{%endfor%}
-		</ul>
-		<p class="grey lighten-2">Total: $ {{cart.get_total_price}}</p>
-	</div>
-	<div class="col m6">
+			<h5>Tu orden:</h5>
+			<table class="table table-bordered">
+				<thead>
+					<th>Cantidad</th>
+					<th>Producto</th>
+					<th>Total por producto</th>
+				</thead>
+				<tbody>
+				{%for item in cart%}
+
+				<tr>
+					<td>{{item.quantity}}</td>
+					<td>{{item.product.nombre}}</td>
+					<td>$ {{item.total_price}}</td>
+				</tr>
+
+				{%endfor%}
+				<tr>
+					<td colspan='2' align="center">Total</td>
+					<td>$ {{cart.get_total_price}}</td>
+				</tr>
+				</tbody>			
+			</table>		
+				
+		</div>
+	<div class="col-md-6">
 		<h5>Llena el formulario con tus datos:</h5>
 
 	<form action="." method='post'>
@@ -29,4 +47,7 @@
 	</form>
 	</div>
 
+	</div>
+	<br>
+</div>
 {%endblock content%}
