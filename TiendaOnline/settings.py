@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ordenes',
     'paypal.standard.ipn',
     'pagos',
+    'main',
 ]
 
 MIDDLEWARE = [

@@ -19,6 +19,7 @@ from productos import urls as productosUrls
 from carrito import urls as carritoUrls
 from ordenes import urls as ordenesUrls
 from pagos import urls as pagosUrls
+from main import urls as mainUrls
 
 #Urls de PalPay
 from paypal.standard.ipn import urls as paypalUrls
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^', include(carritoUrls, namespace="carrito")),
     url(r'^', include(ordenesUrls, namespace="ordenes")),
     url(r'^', include(pagosUrls, namespace="pagos")),
+    url(r'^', include(mainUrls, namespace="main")),
 
     #Palpay
     url(r'^paypal/', include(paypalUrls)),
