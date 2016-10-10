@@ -12,11 +12,11 @@
     <header>
         <div class="container">
             <div class="row">
-                <div  class="col-xs-12 col-sm-9 col-md-10 col-lg-10"><a href="{% url 'main:home'%}"><h1>Mi tienda</h1></a></div>
-                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-                    <p>
+                <div  class="col-xs-12 col-sm-12 col-md-8 col-lg-8"><a href="{% url 'main:home'%}"><h1>Mi tienda</h1></a></div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 totheright">
+                    <h5>
                         {%with total_items=cart|length%}
-                        {%if carṭ|length > 0%}
+                        {%if cart|length > 0%}
                         Tu carrito:<a href="{%url 'carrito:detalleCarrito'%}">
                             {{total_items}} item{{total_items|pluralize}}, $ {{cart.get_total_price}}
                         </a>
@@ -24,7 +24,7 @@
                         <p>Tu carrito esta vacio</p>
                         {%endif%}
                         {%endwith%}
-                    </p>
+                    </h5>
                 </div>
             </div>
         </div>

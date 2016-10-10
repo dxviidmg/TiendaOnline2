@@ -28,3 +28,7 @@ aside {
     font-size: large;
     text-align: center;
 }
+
+.totheright{ /*this will align the text to the right*/
+  text-align:right;
+}
